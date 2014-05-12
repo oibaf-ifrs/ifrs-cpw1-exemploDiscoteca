@@ -22,7 +22,7 @@ public class main {
     public static void main(String[] args) {
         List<Disco> discoteca = new ArrayList<Disco>();
         int opcao=0;
-        String nomeDisco, nomeInterprete, strEstilo;
+        String nomeDisco, nomeInterprete, strEstilo, output;
         Estilo estilo=Estilo.ROCK;
         int numFaixas, anoDisco, escolhaEstilo ,count;
         do {
@@ -65,17 +65,21 @@ public class main {
                         break;
                     case 2:
                         Collections.sort(discoteca, new DiscoComparatorAnoAsc());
+                        output="";
                         for (Disco disco : discoteca) {
-                            System.out.println(disco);
-                            System.out.println("===");
+                            output+=disco;
+                            output+="\n===\n";
                         }
+                        JOptionPane.showMessageDialog(null, output);
                         break;
                     case 3:
+                        output="";
                         Collections.sort(discoteca, new DiscoComparatorAnoDesc());
                         for (Disco disco : discoteca) {
-                            System.out.println(disco);
-                            System.out.println("===");
+                            output+=disco;
+                            output+="===";
                         }
+                        JOptionPane.showMessageDialog(null, output);
                         break;
                 }
             }
