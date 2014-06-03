@@ -6,7 +6,11 @@
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import javax.swing.JOptionPane;
 import model.*;
 
@@ -19,7 +23,7 @@ public class main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void oldMain(String[] args) {
         List<Disco> discoteca = new ArrayList<Disco>();
         int opcao=0;
         String nomeDisco, nomeInterprete, strEstilo, output;
@@ -87,6 +91,30 @@ public class main {
                 System.out.println(e.getMessage());
             }
         } while(opcao!=99);
+        System.exit(0);
+    }
+    
+    public static void main(String[] args) {
+        Usuario u1,u2,u3;
+        u1 = new Usuario("1", "João", null, null);
+        u2 = new Usuario("2", "Maria", null, null);
+        u3 = new Usuario("3", "José", null, null);
+        HashMap mapa = new HashMap();
+        mapa.put(u1.getCpf(), u1);
+        mapa.put(u2.getCpf(), u2);
+        mapa.put(u3.getCpf(), u3);
+        Set lista = mapa.keySet();
+        Iterator it = lista.iterator();
+        while(it.hasNext())
+            System.out.println(it.next());
+        lista = mapa.entrySet();
+        it = lista.iterator();
+        Map.Entry entry;
+        while(it.hasNext()) {
+            entry = (Map.Entry)it.next();
+            System.out.println(entry.getKey());
+            System.out.println(entry.getValue());
+        }
         System.exit(0);
     }
 }
